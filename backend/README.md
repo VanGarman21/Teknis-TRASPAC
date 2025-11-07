@@ -7,6 +7,99 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+# Backend (Laravel)
+
+> Dokumentasi ini fokus pada langkah-langkah praktis agar developer (terutama pemula) dapat menjalankan, mengembangkan, dan menguji backend Laravel yang ada di repository.
+
+Lokasi file penting:
+
+- `app/` — Model, Controller, Middleware, Provider.
+- `routes/api.php` — Endpoint API yang diakses oleh frontend Next.js.
+- `database/migrations` — Struktur tabel database.
+- `database/seeders` — Seeder untuk data awal (User, Unit, Religion, Employee).
+
+---
+
+## Prasyarat (Windows / PowerShell)
+
+- PHP 8.0+ 
+- Composer (https://getcomposer.org)
+- Database: MySQL
+- Git 
+
+## Setup cepat (PowerShell)
+
+1. Masuk ke folder backend:
+
+```powershell
+cd "backend"
+```
+
+2. Install dependency PHP:
+
+```powershell
+composer install
+```
+
+3. Salin environment contoh dan buat APP key:
+
+```powershell
+copy .env.example .env
+php artisan key:generate
+```
+
+4. Edit `.env` dan konfigurasikan koneksi database (DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD).
+
+Contoh minimal untuk development (MySQL lokal):
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nama_database_anda
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+5. Jalankan migrasi dan seeder (membuat tabel & data awal):
+
+```powershell
+php artisan migrate --seed
+```
+
+Jika ingin membersihkan dan migrasi ulang (hati-hati: akan menghapus data):
+
+```powershell
+php artisan migrate:fresh --seed
+```
+
+6. Jalankan server development lokal:
+
+```powershell
+php artisan serve
+```
+---
+
+## Integrasi dengan frontend (Next.js)
+
+- Pastikan frontend mengarah ke base URL backend.
+
+```
+NEXT_PUBLIC_API_URL=http://127.0.0.1:8000
+```
+---
+
+## Autentikasi & Seeder
+
+- Untuk login cepat selama development, cek `database/seeders/UserSeeder.php` apakah ada user default (email/username & password). Jika ada, gunakan kredensial tersebut.
+- Jika tidak ada, Anda bisa membuat user baru melalui Tinker:
+
+```powershell
+php artisan tinker
+>>> \App\Models\User::create(['name' => 'Dev', 'email' => 'dev@example.com', 'password' => bcrypt('password')]);
+```
+---
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
