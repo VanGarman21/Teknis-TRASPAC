@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand palette */
+  --brand-muted: #B7E5CD;    /* light mint */
+  --brand-secondary: #8ABEB9;/* teal */
+  --brand-primary: #305669;  /* dark teal */
+  --brand-accent: #C1785A;   /* terracotta */
+
+  /* Base surfaces/text */
+  --background: var(--brand-muted);
+  --foreground: var(--brand-primary);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Simple utility helpers mapped to the brand palette */
+.bg-primary { background-color: var(--brand-primary); }
+.bg-secondary { background-color: var(--brand-secondary); }
+.bg-accent { background-color: var(--brand-accent); }
+.bg-muted { background-color: var(--brand-muted); }
+
+.text-primary { color: var(--brand-primary); }
+.text-secondary { color: var(--brand-secondary); }
+.text-accent { color: var(--brand-accent); }
+
+.border-primary { border-color: var(--brand-primary); }
+.border-secondary { border-color: var(--brand-secondary); }
+.border-accent { border-color: var(--brand-accent); }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* keep readable on dark; optional tweak */
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
