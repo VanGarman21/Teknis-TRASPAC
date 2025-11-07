@@ -20,67 +20,28 @@ sekolah untuk meningkatkan kualitas komunikasi dan pembinaan kepada siswa. Denga
 mengembangkan kepribadian dan pengetahuannya.
 """
 
-# ========== Import Modul ==========
 import re
 
-# ========== Fungsi Utama ==========
-
 def count_word(article: str, target: str) -> int:
-    """
-    Menghitung jumlah kemunculan kata tertentu di dalam artikel.
-    Pencarian bersifat case-insensitive (tidak membedakan huruf besar dan kecil).
-
-    Args:
-        article (str): Teks artikel yang akan dianalisis.
-        target (str): Kata yang ingin dicari.
-
-    Returns:
-        int: Jumlah kemunculan kata dalam artikel.
-    """
+    # berapa kali sebuah kata muncul dalam teks
     words = re.findall(r'\b\w+\b', article.lower())  # Ambil semua kata
     return words.count(target.lower())
 
 
 def replace_word(article: str, old: str, new: str) -> str:
-    """
-    Mengganti semua kemunculan kata 'old' menjadi 'new' dalam artikel.
-    Proses penggantian dilakukan tanpa mengubah format kalimat asli.
-
-    Args:
-        article (str): Artikel asli.
-        old (str): Kata yang ingin diganti.
-        new (str): Kata pengganti.
-
-    Returns:
-        str: Artikel baru setelah kata diganti.
-    """
-    pattern = r'\b' + re.escape(old) + r'\b'  # Pastikan hanya mengganti kata utuh
+    # mengganti sebuah kata dengan kata lain dalam teks
+    pattern = r'\b' + re.escape(old) + r'\b'  # hanya mengganti kata utuh
     replaced_article = re.sub(pattern, new, article, flags=re.IGNORECASE)
     return replaced_article
 
 
 def sort_words(article: str) -> list:
-    """
-    Mengambil seluruh kata dari artikel, lalu mengurutkannya secara alfabetis.
-    Huruf besar/kecil diabaikan agar hasil lebih konsisten.
-
-    Args:
-        article (str): Artikel yang akan diurai.
-
-    Returns:
-        list: Daftar kata unik yang sudah diurutkan dari a–z.
-    """
+    # menampilkan daftar kata unik yang ada dalam teks, diurutkan secara alfabet
     words = re.findall(r'\b\w+\b', article.lower())
     unique_words = sorted(set(words))
     return unique_words
 
-
-# ========== Antarmuka CLI ==========
 def main():
-    """
-    Menyediakan menu interaktif berbasis CLI.
-    Pengguna dapat memilih fitur analisis artikel sesuai kebutuhan.
-    """
     print("="*60)
     print("PROGRAM ANALISIS ARTIKEL PENDIDIKAN".center(60))
     print("="*60)
@@ -119,7 +80,5 @@ def main():
         else:
             print("Pilihan tidak valid. Silakan coba lagi.")
 
-
-# ========== Eksekusi Program ==========
 if __name__ == "__main__":
     main()

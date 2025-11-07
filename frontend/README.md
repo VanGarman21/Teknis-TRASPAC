@@ -65,43 +65,10 @@ Catatan: di proyek ini, route root (`/`) sudah diubah untuk mengarahkan (redirec
 
 - Jika port 3000 sudah digunakan, jalankan `npx next dev -p 3001` atau hentikan proses yang memakai port 3000.
 
-## Tips cepat untuk pemula
-
-- Mulai dengan membuka `app/login/page.tsx` untuk melihat struktur halaman login.
-- Edit file lalu lihat browser (hot-reload) untuk cepat bereksperimen.
-- Gunakan DevTools (Network) untuk melihat panggilan API dari `lib/api.ts`.
-
-## Langkah selanjutnya (opsional)
-
-- Tambahkan file `.env.local` dengan variabel environment untuk URL backend jika diperlukan.
-- Buat README terpisah untuk `backend/` agar setup backend juga jelas.
-
-Jika mau, saya bisa langsung menambahkan contoh `.env.local` dan menjelaskan variabel apa yang diperlukan.
-
 ---
 
 Jalankan `npm run dev` seperti langkah di atas dan beri tahu hasilnya — saya bantu jika muncul error.
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More
 
