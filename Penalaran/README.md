@@ -1,4 +1,5 @@
 # Penalaran
+
 File `soal_penalaran.py` adalah program Python sederhana untuk menganalisis dan memanipulasi teks sebuah artikel (artikel tentang pentingnya teknologi informasi dalam pendidikan disertakan di file). Program menyediakan menu interaktif sederhana untuk:
 
 - mencari berapa kali sebuah kata muncul,
@@ -29,11 +30,12 @@ Contoh interaksi singkat:
 ## Penjelasan fungsi utama
 
 - `count_word(article: str, target: str) -> int`
+
   - menampilkan berapa kali sebuah kata muncul dalam teks.
 
 - `replace_word(article: str, old: str, new: str) -> str`
+
   - mengganti sebuah kata dengan kata lain dalam teks.
 
 - `sort_words(article: str) -> list`
   - menampilkan daftar kata unik yang ada dalam teks, diurutkan secara alfabet.
-
